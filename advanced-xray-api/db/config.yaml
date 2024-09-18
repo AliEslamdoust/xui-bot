@@ -1,0 +1,42 @@
+# Path to X-UIs' database
+# If you haven't changed the path in X-UI settings, then don't change this
+xui_database: /etc/x-ui/x-ui.db
+
+# Path to database json file
+# This file contains hash key, inbounds, cookies, emails and etc.
+# Path must be relative to the projects' main directory
+db_json: /root/telegram-api/db/db.json
+
+# Path to datasbase backup file
+# Path must be relative to the projects' main directory
+backup_file: /root/telegram-api/db/db_backup.json
+
+# Path to log.txt file
+log_file: /root/telegram-api/db/log.txt
+
+# API access code
+# Default password is "mypassword"
+# you can change it in bots' management panel
+accesscode: $2b$10$4k3X8dRXtZpDLLbM3JbEROdPmHAPxT4CLQMx/32hfQzZjWBL2OeOK
+
+# Database update delay in seconds
+# Enter a number greater thatn 1 to avoid spams on database and crashing
+reload_delay: 5
+
+# Servers information for running server
+# Username and Password:
+# Enter the username and password that is used for the X-UI panel
+# PORT:
+# enter the port that X-UI panel is running on
+# IP and Address:
+# Set the value to the servers IP and a domain/subdomain that is pointed to that IP
+# If you're using Cloudflare to manage subdomains, please remember to turn of the "Tunnel through cloudflare" option
+# If you have SSL certificate, your address must start with https. Otherwise it must be http
+xui:
+  username: ""
+  password: ""
+  port: 2053
+  address: http://example.com
+
+# Specify the PORT that you want the controller to run
+port: 5594

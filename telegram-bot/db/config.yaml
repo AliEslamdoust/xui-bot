@@ -1,0 +1,74 @@
+# Path to bots' database file
+bot_database: /root/telegram-bot/db/bot.db
+
+# Path to log.txt file
+log_file: /root/telegram-bot/db/log.txt
+
+# API access code
+# Default password is "mypassword"
+# you can change it in bots' management panel
+accesscode: $2b$10$4k3X8dRXtZpDLLbM3JbEROdPmHAPxT4CLQMx/32hfQzZjWBL2OeOK
+
+# Bot info
+# Bots' ID in Telegram
+botId: 
+
+# Bot Token
+BOT_TOKEN: 
+
+# Main owner / supports' Telegram ID
+supportId: 
+
+# Servers information for both Iran and Foreign locations
+# PORT:
+# enter the port that script is running on
+# IP and Address:
+# Set the value to the servers IP and a domain/subdomain that is pointed to that IP
+# If you're using Cloudflare to manage subdomains, please remember to turn of the "Tunnel through cloudflare" option
+# If you have SSL certificate, your address must start with https. Otherwise it must be http
+# can bot give unlimited duration
+# set unlimited durations price related to the duration price set in management panel
+# example: if duration price in management panel is set to 50000 and you set this to 3, the unlimited durations price will be 3*50000 = 150000
+credentials:
+  # First servers' credentials
+  first_server:
+    port: 5594
+    ip: "8.8.8.8"
+    address: https://example.com
+    sub_address: http://example.com:2096/sub/
+    panel_address: example.com
+    name: Main Service
+    inbounds:
+      4:
+        - 56925
+        - 🇫🇷
+        - vless
+      7:
+        - 65527
+        - 🇺🇸
+        - vmess
+    give_unlimited_duartion: true
+    unlimited_duratoin_price: 4
+    active : true
+    
+  second_server:
+    port: 5594
+    ip: "1.1.1.1"
+    address: https://s2.example.com
+    sub_address: http://s2.example.com:2096/sub/
+    panel_address: s2.example.com
+    name: Second Service
+    inbounds: []
+    give_unlimited_duartion: true
+    unlimited_duratoin_price: 4
+    active : false
+
+# robots configrations
+configs:
+  # should bot be able to give test configs to clients?
+  # if yes, you can later set the test config traffic, ip limit and duration in management panel
+  give_test: true
+
+  # can bot give panels to users?
+  # if yes, you can later set the panels price in management panel
+  give_panel: false
