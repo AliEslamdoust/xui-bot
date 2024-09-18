@@ -21,29 +21,28 @@ nvm use --lts
 # Create the directory for Telegram bot files (if it doesn't exist)
 mkdir -p /root/telegram-bot
 
-# Download index.js
-curl -o /root/telegram-bot/index.js -f https://raw.githubusercontent.com/AliEslamdoust/xui-bot/main/telegram-bot/index.js
+# Target directory (replace with your desired location)
+TARGET_DIR="/root/telegram-bot"
 
-# Download run.sh file
-curl -o /root/telegram-bot/run.sh -f https://raw.githubusercontent.com/AliEslamdoust/xui-bot/main/telegram-bot/run.sh
+# Remote URL with directory (ensure trailing slash)
+REMOTE_URL="https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/telegram-bot/"
 
-# Create db directory (if it doesn't exist)
-mkdir -p /root/telegram-bot/db
+# Create the target directory if it doesn't exist
+if [ ! -d "$TARGET_DIR" ]; then
+  mkdir -p "$TARGET_DIR"
+  echo "Created target directory: $TARGET_DIR"
+fi
 
-# Download bot.db
-curl -o /root/telegram-bot/db/bot.db -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/telegram-bot/db/db.json
+# Download individual files recursively using -r flag
+curl -r -o "$TARGET_DIR/" "$REMOTE_URL"*
 
-# Download config.yaml
-curl -o /root/telegram-bot/db/config.yaml -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/telegram-bot/db/config.yaml
+# Handle potential errors (optional)
+if [ $? -ne 0 ]; then
+  echo "Error: Download failed!"
+  exit 1
+fi
 
-# Create lib directory (if it doesn't exist)
-mkdir -p /root/telegram-bot/lib
-
-# Download db.json
-curl -o /root/telegram-bot/lib/db.json -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/telegram-bot/db/db.json
-
-# Download config.yaml
-curl -o /root/telegram-bot/lib/config.yaml -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/telegram-bot/db/config.yaml
+echo "Files downloaded successfully to: $TARGET_DIR"
 
 # Install required Node.js packages
 npm install telegraf fs jalali-moment js-yaml uuid axios sqlite3 path --prefix /root/telegram-bot
