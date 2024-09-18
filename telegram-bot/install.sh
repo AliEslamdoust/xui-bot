@@ -36,92 +36,98 @@ curl -o /root/telegram-bot/run.sh -f https://raw.githubusercontent.com/AliEslamd
 # Create the database directory if it doesn't exist
 mkdir -p /root/telegram-bot/db
 
-# Create the database file
-sqlite3 /root/telegram-bot/db/bot.db <<EOF
-CREATE TABLE "channels" (
-    "name"  TEXT,
-    "id"    TEXT,
-    "adder" INTEGER,
-    "date_added" INTEGER
-);
+# Check if the database file exists
+if [ ! -f /root/telegram-bot/db/bot.db ]; then
+    # Create the database file
+    sqlite3 /root/telegram-bot/db/bot.db <<EOF
+    CREATE TABLE "channels" (
+        "name"  TEXT,
+        "id"    TEXT,
+        "adder" INTEGER,
+        "date_added" INTEGER
+    );
 
-CREATE TABLE "gifts" (
-    "code"      TEXT,
-    "name"      TEXT,
-    "users_id"  TEXT,
-    "expiration" INTEGER,
-    "enable"    INTEGER,
-    "hidden"    INTEGER,
-    "prize"     INTEGER,
-    "limit"     INTEGER
-);
+    CREATE TABLE "gifts" (
+        "code"      TEXT,
+        "name"      TEXT,
+        "users_id"  TEXT,
+        "expiration" INTEGER,
+        "enable"    INTEGER,
+        "hidden"    INTEGER,
+        "prize"     INTEGER,
+        "limit"     INTEGER
+    );
 
-CREATE TABLE "monthly_payments" (
-	"month"	TEXT,
-	"from"	INTEGER,
-	"to"	INTEGER,
-	"amount"	INTEGER,
-	"total_payments"	INTEGER
-);
+    CREATE TABLE "monthly_payments" (
+    	"month"	TEXT,
+    	"from"	INTEGER,
+    	"to"	INTEGER,
+    	"amount"	INTEGER,
+    	"total_payments"	INTEGER
+    );
 
-CREATE TABLE "payments" (
-	"userid"	INTEGER,
-	"id"	TEXT,
-	"price"	INTEGER,
-	"date"	INTEGER,
-	"success"	TEXT,
-	"bought_item"	TEXT
-);
+    CREATE TABLE "payments" (
+    	"userid"	INTEGER,
+    	"id"	TEXT,
+    	"price"	INTEGER,
+    	"date"	INTEGER,
+    	"success"	TEXT,
+    	"bought_item"	TEXT
+    );
 
-CREATE TABLE "pricing" (
-	"item_id"	INTEGER,
-	"ip_limit"	INTEGER,
-	"duration"	INTEGER,
-	"traffic"	INTEGER,
-	"price"	INTEGER,
-	"type"	TEXT,
-	"pack_name"	TEXT,
-	"location"	TEXT
-);
+    CREATE TABLE "pricing" (
+    	"item_id"	INTEGER,
+    	"ip_limit"	INTEGER,
+    	"duration"	INTEGER,
+    	"traffic"	INTEGER,
+    	"price"	INTEGER,
+    	"type"	TEXT,
+    	"pack_name"	TEXT,
+    	"location"	TEXT
+    );
 
-CREATE TABLE "reservations" (
-	"reserve_id"	TEXT,
-	"subId"	TEXT,
-	"ip"	INTEGER,
-	"traffic"	INTEGER,
-	"duration"	INTEGER
-, "location"	TEXT, "status"	TEXT);
+    CREATE TABLE "reservations" (
+    	"reserve_id"	TEXT,
+    	"subId"	TEXT,
+    	"ip"	INTEGER,
+    	"traffic"	INTEGER,
+    	"duration"	INTEGER
+    , "location"	TEXT, "status"	TEXT);
 
-CREATE TABLE "subscriptions" (
-	"owner_id"	INTEGER,
-	"users_id"	TEXT,
-	"subId"	TEXT,
-	"name"	TEXT,
-	"status"	TEXT,
-	"location"	TEXT
-, "reserve"	TEXT, "sentNotice"	INTEGER);
+    CREATE TABLE "subscriptions" (
+    	"owner_id"	INTEGER,
+    	"users_id"	TEXT,
+    	"subId"	TEXT,
+    	"name"	TEXT,
+    	"status"	TEXT,
+    	"location"	TEXT
+    , "reserve"	TEXT, "sentNotice"	INTEGER);
 
-CREATE TABLE "tickets" (
-	"ticketId"	INTEGER,
-	"userid"	INTEGER,
-	"last_response"	INTEGER,
-	"subject"	TEXT,
-	"messages"	TEXT,
-	"status"	TEXT
-);
+    CREATE TABLE "tickets" (
+    	"ticketId"	INTEGER,
+    	"userid"	INTEGER,
+    	"last_response"	INTEGER,
+    	"subject"	TEXT,
+    	"messages"	TEXT,
+    	"status"	TEXT
+    );
 
-CREATE TABLE "users" (
-	"id"	INTEGER,
-	"userid"	INTEGER,
-	"username"	TEXT,
-	"fullname"	TEXT,
-	"balance"	INTEGER,
-	"inviter"	INTEGER,
-	"user_lvl"	INTEGER,
-	"status"	TEXT,
-	"reason"	TEXT
-, "test_sub"	INTEGER);
+    CREATE TABLE "users" (
+    	"id"	INTEGER,
+    	"userid"	INTEGER,
+    	"username"	TEXT,
+    	"fullname"	TEXT,
+    	"balance"	INTEGER,
+    	"inviter"	INTEGER,
+    	"user_lvl"	INTEGER,
+    	"status"	TEXT,
+    	"reason"	TEXT
+    , "test_sub"	INTEGER);
 EOF
+else
+    # If the database already exists, print a message
+    echo "Database already exists."
+fi
 
 # Download config.yaml
 curl -o /root/telegram-bot/db/config.yaml -f https://raw.githubusercontent.com/AliEslamdoust/xui-bot/main/telegram-bot/db/config.yaml
