@@ -25,7 +25,7 @@ mkdir -p /root/telegram-bot
 TARGET_DIR="/root/telegram-bot"
 
 # Remote URL with directory (ensure trailing slash)
-REMOTE_URL="https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/telegram-bot/"
+REMOTE_URL="https://github.com/AliEslamdoust/xui-bot/tree/a2c8d9b3339cf5d9428229d0ced45c88724efaea/advanced-xray-api"
 
 # Create the target directory if it doesn't exist
 if [ ! -d "$TARGET_DIR" ]; then
