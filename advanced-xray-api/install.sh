@@ -27,6 +27,9 @@ curl -o /root/telegram-api/index.js -f https://raw.githubusercontent.com/AliEsla
 # Download run.sh file
 curl -o /root/telegram-api/run.sh -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/advanced-xray-api/run.sh
 
+# Create db directory (if it doesn't exist)
+mkdir -p /root/telegram-bot/db
+
 # Download db.json
 curl -o /root/telegram-bot/db/db.json -f https://raw.githubusercontent.com/AliEslamdoust/xui-bot/main/advanced-xray-api/db/db.json
 
@@ -42,4 +45,6 @@ screen -X term 'telegram-api'
 # Start the Telegram api in the background
 bash /root/telegram-api/run.sh
 
-echo "open config.yaml file that is located in /root/telegram-api/db/config.yaml and set your servers information"
+echo "open config.yaml file that is located in /root/telegram-api/db/config.yaml and set your servers information, then run the following command:"
+
+echo "bash /root/telegram-api/run.sh"

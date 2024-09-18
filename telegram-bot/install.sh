@@ -21,28 +21,32 @@ nvm use --lts
 # Create the directory for Telegram bot files (if it doesn't exist)
 mkdir -p /root/telegram-bot
 
-# Target directory (replace with your desired location)
-TARGET_DIR="/root/telegram-bot"
+# Download index.js
+curl -o /root/telegram-bot/index.js -f https://raw.githubusercontent.com/AliEslamdoust/xui-bot/main/telegram-bot/index.js
 
-# Remote URL with directory (ensure trailing slash)
-REMOTE_URL="https://github.com/AliEslamdoust/xui-bot/tree/a2c8d9b3339cf5d9428229d0ced45c88724efaea/advanced-xray-api"
+# Download run.sh file
+curl -o /root/telegram-bot/run.sh -f https://raw.githubusercontent.com/AliEslamdoust/xui-bot/main/telegram-bot/run.sh
 
-# Create the target directory if it doesn't exist
-if [ ! -d "$TARGET_DIR" ]; then
-  mkdir -p "$TARGET_DIR"
-  echo "Created target directory: $TARGET_DIR"
-fi
+# Create db directory (if it doesn't exist)
+mkdir -p /root/telegram-bot/db
 
-# Download individual files recursively using -r flag
-curl -r -o "$TARGET_DIR/" "$REMOTE_URL"*
+# Download bot.db
+curl -o /root/telegram-bot/db/bot.db -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/telegram-bot/db/bot.db
 
-# Handle potential errors (optional)
-if [ $? -ne 0 ]; then
-  echo "Error: Download failed!"
-  exit 1
-fi
+# Download config.yaml
+curl -o /root/telegram-bot/db/config.yaml -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/telegram-bot/db/config.yaml
 
-echo "Files downloaded successfully to: $TARGET_DIR"
+# Create lib directory (if it doesn't exist)
+mkdir -p /root/telegram-bot/lib
+
+# Download database handler
+curl -o /root/telegram-bot/lib/database_handler.js -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/telegram-bot/lib/database_handler.js
+
+# Download axios instance
+curl -o /root/telegram-bot/lib/axios_instance.js -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/telegram-bot/lib/axios_instance.js
+
+# Download log handler
+curl -o /root/telegram-bot/lib/log_handler.js -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/telegram-bot/lib/log_handler.js
 
 # Install required Node.js packages
 npm install telegraf fs jalali-moment js-yaml uuid axios sqlite3 path --prefix /root/telegram-bot
@@ -50,7 +54,9 @@ npm install telegraf fs jalali-moment js-yaml uuid axios sqlite3 path --prefix /
 # Stop previous background screens
 screen -X term 'telegram-bot'
 
-# Start the Telegram api in the background
+# Start the Telegram bot in the background
 bash /root/telegram-bot/run.sh
 
-echo "open config.yaml file that is located in /root/telegram-bot/db/config.yaml and set your servers information"
+echo "open config.yaml file that is located in /root/telegram-bot/db/config.yaml and set your servers information, then run the following command:"
+
+echo "bash /root/telegram-bot/run.sh"
