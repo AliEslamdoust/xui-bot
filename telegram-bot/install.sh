@@ -49,7 +49,7 @@ curl -o /root/telegram-bot/lib/config.yaml -f https://raw.githubusercontent.com/
 npm install telegraf fs jalali-moment js-yaml uuid axios sqlite3 path --prefix /root/telegram-bot
 
 # Stop previous background screens
-screen -X term 'telegram-api'
+screen -X term 'telegram-bot'
 
 # Start the Telegram api in the background
 bash /root/telegram-bot/run.sh
