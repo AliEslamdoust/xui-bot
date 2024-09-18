@@ -5,11 +5,11 @@
 ## Install & Upgrade Telegram Bot (run this on Bots' host only)
 
 ```
-bash <(curl -sL https://raw.githubusercontent.com/AliEslamdoust/xui-bot/main/install.sh)
+bash <(curl -sL https://raw.githubusercontent.com/AliEslamdoust/xui-bot/main/advanced-xray-api/install.sh)
 ```
 
 ## Install & Upgrade Telegram API (run this on all servers)
 
 ```
-bash <(curl -sL https://raw.githubusercontent.com/AliEslamdoust/xui-bot/main/install.sh)
+bash <(curl -sL https://raw.githubusercontent.com/AliEslamdoust/xui-bot/main/telegram-bot/install.sh)
 ```

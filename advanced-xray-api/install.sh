@@ -22,28 +22,16 @@ nvm use --lts
 mkdir -p /root/telegram-api
 
 # Download index.js
-curl -o /root/telegram-api/index.js -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/index.js
+curl -o /root/telegram-api/index.js -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/advanced-xray-api/index.js
 
 # Download run.sh file
-curl -o /root/telegram-api/run.sh -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/run.sh
-
-# Create db directory (if it doesn't exist)
-mkdir -p /root/telegram-api/db
-
-# Download bot.db
-curl -o /root/telegram-api/db/bot.db -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/db/db.json
-
-# Download config.yaml
-curl -o /root/telegram-api/db/config.yaml -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/db/config.yaml
-
-# Create lib directory (if it doesn't exist)
-mkdir -p /root/telegram-api/lib
+curl -o /root/telegram-api/run.sh -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/advanced-xray-api/run.sh
 
 # Download db.json
-curl -o /root/telegram-api/lib/db.json -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/db/db.json
+curl -o /root/telegram-bot/db/db.json -f https://raw.githubusercontent.com/AliEslamdoust/xui-bot/main/advanced-xray-api/db/db.json
 
 # Download config.yaml
-curl -o /root/telegram-api/lib/config.yaml -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/db/config.yaml
+curl -o /root/telegram-bot/db/config.yaml -f https://raw.githubusercontent.com/AliEslamdoust/xui-bot/main/advanced-xray-api/db/config.yaml
 
 # Install required Node.js packages
 npm install express cors axios fs js-yaml sqlite3 bcrypt body-parser path --prefix /root/telegram-api
