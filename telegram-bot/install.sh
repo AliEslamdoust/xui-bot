@@ -124,19 +124,19 @@ CREATE TABLE "users" (
 EOF
 
 # Download config.yaml
-curl -o /root/telegram-bot/db/config.yaml -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/telegram-bot/db/config.yaml
+curl -o /root/telegram-bot/db/config.yaml -f https://raw.githubusercontent.com/AliEslamdoust/xui-bot/main/telegram-bot/db/config.yaml
 
 # Create lib directory (if it doesn't exist)
 mkdir -p /root/telegram-bot/lib
 
 # Download database handler
-curl -o /root/telegram-bot/lib/database_handler.js -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/telegram-bot/lib/database_handler.js
+curl -o /root/telegram-bot/lib/database_handler.js -f https://raw.githubusercontent.com/AliEslamdoust/xui-bot/main/telegram-bot/lib/database_handler.js
 
 # Download axios instance
-curl -o /root/telegram-bot/lib/axios_instance.js -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/telegram-bot/lib/axios_instance.js
+curl -o /root/telegram-bot/lib/axios_instance.js -f https://raw.githubusercontent.com/AliEslamdoust/xui-bot/main/telegram-bot/lib/axios_instance.js
 
 # Download log handler
-curl -o /root/telegram-bot/lib/log_handler.js -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/telegram-bot/lib/log_handler.js
+curl -o /root/telegram-bot/lib/log_handler.js -f https://raw.githubusercontent.com/AliEslamdoust/xui-bot/main/telegram-bot/lib/log_handler.js
 
 
 # Stop previous background screens

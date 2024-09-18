@@ -22,16 +22,16 @@ nvm use --lts
 mkdir -p /root/telegram-api
 
 # Download index.js
-curl -o /root/telegram-api/index.js -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/advanced-xray-api/index.js
+curl -o /root/telegram-api/index.js -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/advanced-xray-bot/index.js
 
 # Download run.sh file
-curl -o /root/telegram-api/run.sh -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/advanced-xray-api/run.sh
+curl -o /root/telegram-api/run.sh -f https://raw.githubusercontent.com/AliEslamdoust/xui-api/main/advanced-xray-bot/run.sh
 
 # Create db directory (if it doesn't exist)
 mkdir -p /root/telegram-bot/db
 
 # Download db.json
-curl -o /root/telegram-bot/db/db.json -f https://raw.githubusercontent.com/AliEslamdoust/xui-bot/main/advanced-xray-api/db/db.json
+curl -o /root/telegram-bot/db/db.json -f https://raw.githubusercontent.com/AliEslamdoust/xui-bot/main/advanced-xray-bot/db/db.json
 
 # Download config.yaml
 curl -o /root/telegram-bot/db/config.yaml -f https://raw.githubusercontent.com/AliEslamdoust/xui-bot/main/advanced-xray-api/db/config.yaml
